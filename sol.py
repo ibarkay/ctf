@@ -14,10 +14,12 @@ tempFlag = "Secret: HTB"
 while True:
     for i in printable:
         tempFlag += i
-        myObj = {"ingredients":f"{tempFlag}"}
-        r = requests.post(url,data=json.dumps(myObj),headers=headers,proxies=proxies)
-        check = r.content.hex()[36:40] #this is the hex of comp size , if we add somthing that insnot allredy in the file it should icrased ... so we check for the right chcter that wont change the size
-        # if wrong
+        myObj = {"ingredients": f"{tempFlag}"}
+        r = requests.post(url, data=json.dumps(myObj), headers=headers, proxies=proxies)
+        check = r.content.hex()[36:40] 
+        # This is the hex of compressed size. If we add something that is not already in the file, it should increase. 
+        # So we check for the right character that won't change the size.
+        # If wrong, remove the last character
         if check != '3c00':
             tempFlag = tempFlag[:-1]
         print(tempFlag)
