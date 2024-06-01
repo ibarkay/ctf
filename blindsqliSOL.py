@@ -1,7 +1,7 @@
 import requests
 from string import ascii_letters, digits, punctuation
 
-url = "http://challenge01.root-me.org/web-serveur/ch10/"
+url = ""
 
 # Exclude problematic characters
 excluded_chars = "%_\\"
